@@ -13,10 +13,10 @@ To install, you'll need serverless framework, otherwise you can also deploy manu
 To obtain the shell, run the following commands
 
 ## On listening server
-	sudo ncat -lv -p 8000
+	$ sudo ncat -lv -p 8000
 
 ## On local machine (params.json has the ip and port of the listening server)
-	sls invoke -f reverse --path params.json
+	$ sls invoke -f reverse --path params.json
 
 # Notes
 
@@ -28,8 +28,8 @@ If you're running the listener on EC2 or lightsail, remember to enable to port i
 
 # Thanks
 
-Thanks to gkrizek for his Bash custom runtime
+Thanks to gkrizek for his [Bash custom runtime](https://github.com/gkrizek/bash-lambda-layer)
 
-Thanks to Klayers for the netcat binary as a layer
+Thanks to Klayers for the [netcat binary as a layer](https://github.com/keithrozario/Klayers)
 
 
