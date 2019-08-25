@@ -1,0 +1,35 @@
+service: lambshell
+
+provider:
+  name: aws
+  runtime: provided
+  region: ap-southeast-1
+
+functions:
+  reverse:
+    handler: revshell.handler
+    runtime: provided
+    timeout: 30
+    memorySize: 256
+    layers:
+      - arn:aws:lambda:${self:provider.region}:744348701589:layer:bash:8
+      - arn:aws:lambda:${self:provider.region}:113088814899:layer:Klayers-python37-netcat:2
+  reverse_long:
+    handler: revshell.handler
+    runtime: provided
+    timeout: 600
+    memorySize: 256
+    layers:
+      - arn:aws:lambda:${self:provider.region}:744348701589:layer:bash:8
+      - arn:aws:lambda:${self:provider.region}:113088814899:layer:Klayers-python37-netcat:2
+
+package:
+  exclude:
+    - netcat_layer/**
+    - package-lock.json
+    - package.json
+    - node_modules/**
+    - serverless.yml
+    - .gitignore
+    - .serverless
+    - config/**

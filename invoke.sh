@@ -1,0 +1,1 @@
+sls invoke -f reverse --path params.json
